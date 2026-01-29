@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi Nanna ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Animated gradient background */
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #0a0a0a, #1a0a1a, #0a0a1a, #1a0a0a);
+            background-size: 400% 400%;
+            animation: gradientAnimation 20s ease infinite;
+            z-index: -1;
+        }
+        
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Floating elements container */
+        #floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+        
+        .heart {
+            color: #ff4081;
+            font-size: 20px;
+        }
+        
+        .rose {
+            color: #e91e63;
+            font-size: 24px;
+        }
+        
+        .teddy {
+            color: #8d6e63;
+            font-size: 22px;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Main container */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 0 20px;
+            width: 100%;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            background: linear-gradient(45deg, #ff4081, #e91e63, #ff80ab);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(255, 64, 129, 0.3);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .header h1::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ff4081, #e91e63, transparent);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            color: #ffccd5;
+            margin-top: 15px;
+            font-style: italic;
+        }
+        
+        /* Music notification */
+        .music-notification {
+            background: rgba(255, 64, 129, 0.1);
+            border: 1px solid rgba(255, 64, 129, 0.3);
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffccd5;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+        
+        .music-notification i {
+            color: #ff4081;
+            animation: musicNote 2s infinite;
+        }
+        
+        @keyframes musicNote {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* Message container */
+        .message-container {
+            background: rgba(20, 10, 15, 0.85);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 20px 0 40px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7),
+                        0 0 0 1px rgba(255, 64, 129, 0.2),
+                        inset 0 0 30px rgba(255, 64, 129, 0.1);
+            border: 1px solid rgba(255, 64, 129, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .message-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #ff4081, #e91e63, #ff4081);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        
+        .message {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #f5f5f5;
+        }
+        
+        .message p {
+            margin-bottom: 25px;
+            position: relative;
+            padding: 0 10px;
+        }
+        
+        .message p:first-of-type::first-letter {
+            font-size: 2.5rem;
+            color: #ff4081;
+            font-weight: bold;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+            margin-top: 5px;
+        }
+        
+        .highlight {
+            color: #ffccd5;
+            font-weight: 600;
+            background: rgba(255, 64, 129, 0.15);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .valentine-heart {
+            color: #ff4081;
+            font-size: 3.5rem;
+            display: block;
+            margin: 30px auto;
+            animation: heartbeat 1.5s infinite;
+            filter: drop-shadow(0 0 10px rgba(255, 64, 129, 0.7));
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        /* Love quote */
+        .love-quote {
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 3px solid #ff4081;
+            border-right: 3px solid #ff4081;
+            background: rgba(255, 64, 129, 0.05);
+            border-radius: 10px;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #aaa;
+            font-size: 1rem;
+            width: 100%;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 64, 129, 0.2);
+            position: relative;
+        }
+        
+        .footer::before {
+            content: '❤️';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0a0a0a;
+            padding: 0 15px;
+            color: #ff4081;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .message {
+                font-size: 1.1rem;
+                line-height: 1.7;
+            }
+            
+            .message-container {
+                padding: 25px 20px;
+            }
+            
+            .valentine-heart {
+                font-size: 2.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .header p {
+                font-size: 1rem;
+            }
+            
+            .message {
+                font-size: 1rem;
+                line-height: 1.6;
+            }
+            
+            .message-container {
+                padding: 20px 15px;
+            }
+            
+            .heart, .rose, .teddy {
+                font-size: 16px;
+            }
+        }
+        
+        /* Sparkle effects */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px #ff4081;
+            animation: sparkle 3s infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        /* Cursor hearts */
+        .cursor-heart {
+            position: fixed;
+            font-size: 20px;
+            color: #ff4081;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.8;
+            animation: cursorFloat 1.5s forwards;
+        }
+        
+        @keyframes cursorFloat {
+            0% {
+                opacity: 0.8;
+                transform: translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50px) scale(0.5);
+            }
+        }
+        
+        /* Glow effect for text */
+        .glow {
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.7), 
+                        0 0 20px rgba(255, 64, 129, 0.5),
+                        0 0 30px rgba(255, 64, 129, 0.3);
+        }
+        /*pink text*/
+        .pink-text {
+    color: #ff4081;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body>
+    <!-- Animated background -->
+    <div class="gradient-bg"></div>
+    
+    <!-- Floating elements -->
+    <div id="floating-elements"></div>
+    
+    <!-- Main content -->
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-heart"></i> Hi Nanna <i class="fas fa-heart"></i></h1>
+            <p>A message from my heart to you in this Valentine's Day</p>
+            
+          
+        </header>
+        
+        <div class="message-container">
+            <div class="message">
+                <p> 💝 </p><p class="pink-text">Hi Nanna❤️.</p>
+
+                
+                <p>I still remember how unexpectedly our story began—meeting on Snapchat, slowly turning into conversations on Instagram, and discovering the warmth in your voice and the beauty in the way you sing. Those moments were simple, genuine, and full of quiet happiness. Your voice had a way of calming me, and your presence—even through words—felt comforting. Those days may seem small now, but they remain deeply meaningful to me.</p>
+                
+                <div class="love-quote">
+                    "In your smile, I see something more beautiful than the stars." - Unknown
+                </div>
+                
+                <p>Life didn't follow the path we once imagined, and I know there were moments that brought you pain and heartbreak. Watching you go through that, seeing the strength it took to keep going, only deepened my respect for you. Even when things became heavy, even when silence replaced conversations, my care for you never faded. I've always wished for your peace, your healing, and your happiness—because you truly deserve it. <span class="highlight">You are strong, compassionate, and rare, a kind of person this generation sees only once in a while—a true diamond.</span></p>
+                
+                <p>This Valentine's Day, I don't write to demand anything from you, but simply to be honest with my heart. My feelings for you have remained steady, rooted in respect and admiration. Even in distance and silence, that care still exists. If one day you choose to let me walk beside you again, I would do so with patience, understanding, and sincerity. And if not, I still wish for a life filled with peace, love, and light for you—because loving you has always meant wanting what is best for you.</p>
+                
+                <div class="valentine-heart">❤️</div>
+                
+                <p class="glow">Forever yours, with all my heart.</p>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <p>This page was created with love for you, my special one ❤️</p>
+            <p>Designed to be as beautiful as you are</p>
+        </footer>
+    </div>
+    
+    <!-- Background music - autoplay -->
+    <audio id="backgroundMusic" autoplay loop>
+        <!-- If you have a specific music file, replace the src below -->
+        <!-- <source src="your-music-file.mp3" type="audio/mpeg"> -->
+        <!-- Fallback to a free romantic music if no file is provided -->
+        <source src="audio/Remo Bgm.m4r" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+     <!-- Background music - autoplay -->
+    <audio id="backgroundMusic" autoplay loop>
+        <!-- If you have a specific music file, replace the src below -->
+        <!-- <source src="your-music-file.mp3" type="audio/mpeg"> -->
+        <!-- Fallback to a free romantic music if no file is provided -->
+        <source src="audio/Remo Bgm.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        // Create floating elements
+        const floatingContainer = document.getElementById('floating-elements');
+        const icons = ['heart', 'rose', 'teddy'];
+        const iconClasses = {
+            'heart': 'fas fa-heart',
+            'rose': 'fas fa-spa',
+            'teddy': 'fas fa-paw'
+        };
+        
+        // Create 40 floating elements
+        for (let i = 0; i < 40; i++) {
+            const floatingEl = document.createElement('div');
+            const iconType = icons[Math.floor(Math.random() * icons.length)];
+            
+            floatingEl.className = `floating ${iconType}`;
+            floatingEl.innerHTML = `<i class="${iconClasses[iconType]}"></i>`;
+            
+            // Random position and animation
+            const leftPos = Math.random() * 100;
+            const animationDuration = 15 + Math.random() * 20;
+            const animationDelay = Math.random() * 5;
+            const size = 16 + Math.random() * 20;
+            
+            floatingEl.style.left = `${leftPos}%`;
+            floatingEl.style.fontSize = `${size}px`;
+            floatingEl.style.animationDuration = `${animationDuration}s`;
+            floatingEl.style.animationDelay = `${animationDelay}s`;
+            
+            floatingContainer.appendChild(floatingEl);
+        }
+        
+        // Create sparkles
+        for (let i = 0; i < 20; i++) {
+            createSparkle();
+        }
+        
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'sparkle';
+            sparkle.style.left = `${Math.random() * 100}%`;
+            sparkle.style.top = `${Math.random() * 100}%`;
+            sparkle.style.animationDelay = `${Math.random() * 3}s`;
+            document.body.appendChild(sparkle);
+            
+            // Remove and recreate sparkle after animation completes
+            setTimeout(() => {
+                sparkle.remove();
+                createSparkle();
+            }, 3000);
+        }
+        
+        // Background music autoplay with user interaction fallback
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.volume = 0.4; // Set volume to 40%
+        
+        // Try to play music automatically
+        const playMusic = () => {
+            backgroundMusic.play().then(() => {
+                console.log("Music is playing automatically");
+            }).catch(error => {
+                console.log("Autoplay prevented. Waiting for user interaction.");
+                // If autoplay is blocked, wait for user interaction
+                document.addEventListener('click', function startMusicOnClick() {
+                    backgroundMusic.play();
+                    document.removeEventListener('click', startMusicOnClick);
+                }, { once: true });
+            });
+        };
+        
+        // Start playing music when page loads
+        window.addEventListener('load', playMusic);
+        
+        // Create cursor hearts on click
+        document.addEventListener('click', function(e) {
+            // Create a heart at click position
+            const heart = document.createElement('div');
+            heart.className = 'cursor-heart';
+            heart.innerHTML = '<i class="fas fa-heart"></i>';
+            heart.style.left = `${e.clientX - 10}px`;
+            heart.style.top = `${e.clientY - 10}px`;
+            document.body.appendChild(heart);
+            
+            // Remove heart after animation
+            setTimeout(() => {
+                heart.remove();
+            }, 1500);
+            
+            // Also create sparkles at click position
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = `${e.clientX - 2 + Math.random() * 20}px`;
+                    sparkle.style.top = `${e.clientY - 2 + Math.random() * 20}px`;
+                    sparkle.style.animationDelay = `${Math.random() * 0.5}s`;
+                    document.body.appendChild(sparkle);
+                    
+                    // Remove sparkle after animation
+                    setTimeout(() => {
+                        sparkle.remove();
+                    }, 3000);
+                }, i * 100);
+            }
+        });
+        
+        // Add subtle mouse move effect
+        document.addEventListener('mousemove', function(e) {
+            // Create occasional sparkles on mouse move
+            if (Math.random() > 0.97) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = `${e.clientX - 2}px`;
+                sparkle.style.top = `${e.clientY - 2}px`;
+                sparkle.style.width = '3px';
+                sparkle.style.height = '3px';
+                document.body.appendChild(sparkle);
+                
+                // Remove sparkle after animation
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 2000);
+            }
+        });
+        
+        // Add a pulsing effect to the header
+        const headerTitle = document.querySelector('.header h1');
+        setInterval(() => {
+            headerTitle.classList.toggle('glow');
+        }, 2000);
+    </script>
+</body>
+</html>
