@@ -368,9 +368,83 @@
     color: #ff4081;
     font-weight: bold;
 }
+/* go backbutton to home.html page */
+.back-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+
+    /* Premium glass base */
+    background: linear-gradient(
+        135deg,
+        rgba(255, 215, 225, 0.35),
+        rgba(255, 255, 255, 0.15)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    box-shadow:
+        0 10px 30px rgba(255, 105, 180, 0.25),
+        inset 0 0 8px rgba(255, 255, 255, 0.35);
+
+    transition: all 0.35s ease;
+    z-index: 999;
+}
+
+/* Arrow styling – elegant & centered */
+.back-btn .arrow {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #9b3b63;
+    line-height: 1;
+    transition: all 0.35s ease;
+}
+
+/* Hover – soft romantic glow */
+.back-btn:hover {
+    box-shadow:
+        0 0 14px rgba(255, 105, 180, 0.7),
+        0 0 32px rgba(255, 182, 193, 0.6);
+    transform: scale(1.1);
+}
+
+/* Tap / Active – dark pink → black luxury */
+.back-btn:active {
+    background: linear-gradient(
+        135deg,
+        #7a1f3d,
+        #0f0f0f
+    );
+
+    box-shadow:
+        0 0 18px rgba(0, 0, 0, 0.8),
+        inset 0 0 12px rgba(0, 0, 0, 0.9);
+
+    transform: scale(0.96);
+}
+
+/* Arrow turns dark on tap */
+.back-btn:active .arrow {
+    color: #000000;
+}
+
+
     </style>
 </head>
 <body>
+    <a href="home.html" class="back-btn" title="Go back">
+    <span class="arrow">←</span>
+</a>
+
     <!-- Animated background -->
     <div class="gradient-bg"></div>
     
