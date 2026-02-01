@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Nana - My Valentine ❤️</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #ffe6f0 0%, #ffd1dc 50%, #ffe6f0 100%);
+            color: #5a2d41;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+        }
+        
+        /* Magical background with floating hearts */
+        .magical-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            color: #ff6b9d;
+            font-size: 24px;
+            opacity: 0.7;
+            animation: floatHeart 25s infinite linear;
+            z-index: 1;
+        }
+        
+        .floating-heart.small {
+            font-size: 16px;
+            opacity: 0.5;
+        }
+        
+        .floating-heart.large {
+            font-size: 32px;
+            opacity: 0.9;
+        }
+        
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.8);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Back button */
+        .back-btn {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: white;
+            text-decoration: none;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.6);
+            animation: gentlePulse 3s infinite alternate;
+            transition: all 0.4s ease;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.1) rotate(-10deg);
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.9);
+        }
+        
+        @keyframes gentlePulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+        
+        /* Main container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 20px 50px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Header */
+        .contact-header {
+            text-align: center;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+        
+        .contact-header h1 {
+            font-size: 48px;
+            color: #d6336c;
+            text-shadow: 2px 2px 4px rgba(214, 51, 108, 0.2);
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        
+        .contact-header p {
+            font-size: 20px;
+            color: #8a4466;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        /* Contact section */
+        .contact-section {
+            display: flex;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
+        }
+        
+        /* Contact card */
+        .contact-card {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 20px 40px rgba(214, 51, 108, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.4s ease;
+        }
+        
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(214, 51, 108, 0.2);
+        }
+        
+        .contact-card h2 {
+            font-size: 36px;
+            color: #d6336c;
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .contact-card p {
+            font-size: 18px;
+            color: #8a4466;
+            text-align: center;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        /* Form styling */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 18px 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 2px solid #ffd1dc;
+            border-radius: 15px;
+            font-size: 16px;
+            color: #5a2d41;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #ff6b9d;
+            box-shadow: 0 0 0 3px rgba(255, 107, 157, 0.2);
+        }
+        
+        .form-control::placeholder {
+            color: #c78da5;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Valentine question */
+        .valentine-question {
+            background: rgba(255, 214, 231, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border: 2px dashed #ff9ebc;
+        }
+        
+        .valentine-question h3 {
+            font-size: 22px;
+            color: #d6336c;
+            margin-bottom: 15px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .valentine-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .valentine-btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-width: 140px;
+        }
+        
+        .valentine-btn.yes {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .valentine-btn.yes:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.6);
+        }
+        
+        .valentine-btn.no {
+            background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+            color: white;
+            box-shadow: 0 8px 20px rgba(255, 107, 157, 0.4);
+        }
+        
+        .valentine-btn.no:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 12px 25px rgba(255, 107, 157, 0.6);
+        }
+        
+        .valentine-btn.selected {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.8) !important;
+            border: 3px solid white;
+        }
+        
+        /* Submit button */
+        .submit-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffcc00, #ff9900);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.5);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 204, 0, 0.7);
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.3) !important;
+        }
+        
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+        
+        /* GIF container */
+        .gif-container {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(214, 51, 108, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.4s ease;
+        }
+        
+        .gif-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(214, 51, 108, 0.2);
+        }
+        
+        .gif-container h3 {
+            font-size: 32px;
+            color: #d6336c;
+            margin-bottom: 20px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .gif-display {
+            width: 100%;
+            height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff9fb;
+            border: 3px solid #ffd1dc;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .gif-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.5s ease;
+        }
+        
+        .gif-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #c78da5;
+            font-size: 18px;
+            text-align: center;
+            padding: 30px;
+        }
+        
+        .gif-placeholder i {
+            font-size: 60px;
+            margin-bottom: 20px;
+            color: #ff9ebc;
+        }
+        
+        /* Email options */
+        .email-options {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .email-options h3 {
+            font-size: 28px;
+            color: #d6336c;
+            margin-bottom: 25px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .options-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .email-option {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+            max-width: 300px;
+            box-shadow: 0 10px 25px rgba(214, 51, 108, 0.1);
+            border: 2px solid #ffd1dc;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .email-option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(214, 51, 108, 0.2);
+            border-color: #ff6b9d;
+        }
+        
+        .email-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: #ff6b9d;
+        }
+        
+        .email-option h4 {
+            font-size: 22px;
+            color: #d6336c;
+            margin-bottom: 10px;
+        }
+        
+        .email-option p {
+            font-size: 16px;
+            color: #8a4466;
+            margin-bottom: 20px;
+        }
+        
+        .email-link {
+            display: inline-block;
+            padding: 12px 25px;
+            background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .email-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 107, 157, 0.4);
+        }
+        
+        /* Message container */
+        .message-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .message-content {
+            background: linear-gradient(135deg, #fff9fb, #ffe4ec);
+            border-radius: 25px;
+            padding: 50px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 5px solid #ff6b9d;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .message-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            color: #ff6b9d;
+            filter: drop-shadow(0 5px 10px rgba(255, 107, 157, 0.5));
+            animation: bounce 2s infinite alternate;
+        }
+        
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+        
+        .message-content h2 {
+            font-size: 42px;
+            color: #d6336c;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+        }
+        
+        .message-content p {
+            font-size: 22px;
+            color: #8a4466;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .message-btn {
+            padding: 18px 40px;
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 22px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 0 auto;
+        }
+        
+        .message-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(76, 175, 80, 0.7);
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1100px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .contact-card, .gif-container {
+                max-width: 90%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-header h1 {
+                font-size: 36px;
+            }
+            
+            .contact-header p {
+                font-size: 18px;
+            }
+            
+            .contact-card h2 {
+                font-size: 32px;
+            }
+            
+            .contact-card {
+                padding: 30px;
+            }
+            
+            .gif-container h3 {
+                font-size: 28px;
+            }
+            
+            .gif-display {
+                height: 300px;
+            }
+            
+            .valentine-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .valentine-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .email-options h3 {
+                font-size: 24px;
+            }
+            
+            .message-content h2 {
+                font-size: 36px;
+            }
+            
+            .message-content p {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 80px 15px 30px;
+            }
+            
+            .back-btn {
+                top: 20px;
+                left: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            
+            .contact-header h1 {
+                font-size: 32px;
+            }
+            
+            .contact-card, .gif-container {
+                padding: 25px;
+                min-width: 300px;
+            }
+            
+            .gif-display {
+                height: 250px;
+            }
+            
+            .form-control {
+                padding: 15px;
+            }
+            
+            .submit-btn {
+                padding: 18px;
+                font-size: 20px;
+            }
+            
+            .email-option {
+                padding: 20px;
+            }
+            
+            .message-content {
+                padding: 30px 20px;
+            }
+            
+            .message-icon {
+                font-size: 60px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .contact-card, .gif-container {
+                min-width: 280px;
+            }
+            
+            .gif-display {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Magical background with floating hearts -->
+    <div class="magical-bg" id="magical-bg"></div>
+    
+    <!-- Back button -->
+    <a href="home.html" class="back-btn">←</a>
+    
+    <!-- Main container -->
+    <div class="container">
+        <!-- Header -->
+        <div class="contact-header">
+            <h1>Contact Nana ❤️</h1>
+            <p>Send me a heartfelt message and answer the Valentine's question! Your response will reveal a special surprise.</p>
+        </div>
+        
+        <!-- Contact section -->
+        <div class="contact-section">
+            <!-- Contact form -->
+            <div class="contact-card">
+                <form id="contact-form" action="https://formspree.io/f/xblawdbq" method="POST">
+                    <h2>📩 Get in Touch</h2>
+                    <p>I'd love to hear from you. Send me a message!</p>
+                    
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Will you be my Valentine?" value="Will you be my Valentine?" readonly>
+                    </div>
+
+                    <!-- Valentine question -->
+                    <div class="valentine-question">
+                        <h3>Will you be my Valentine? ❤️</h3>
+                        <div class="valentine-buttons">
+                            <button type="button" class="valentine-btn yes" id="yes-btn">
+                                <i class="fas fa-heart"></i> Yes
+                            </button>
+                            <button type="button" class="valentine-btn no" id="no-btn">
+                                <i class="fas fa-heart-broken"></i> No
+                            </button>
+                        </div>
+                        <input type="hidden" id="valentine-response" name="valentine-response" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" name="message" class="form-control" placeholder="Type your message... What would you like to tell me?" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submit-btn" disabled>
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- GIF container -->
+            <div class="gif-container">
+                <h3>Your Surprise ❤️</h3>
+                <div class="gif-display" id="gif-display">
+                    <div class="gif-placeholder" id="gif-placeholder">
+                        <i class="fas fa-heart"></i>
+                        <p>Your answer to the Valentine's question will reveal a special surprise here!</p>
+                    </div>
+                    <img src="" alt="Valentine GIF" class="gif-image" id="gif-image" style="display: none;">
+                </div>
+                <p id="gif-message" style="margin-top: 20px; text-align: center; color: #8a4466; font-style: italic; display: none;"></p>
+            </div>
+        </div>
+        
+        <!-- Email options -->
+        <div class="email-options">
+            <h3>Or Send Email Directly</h3>
+            <div class="options-container">
+                <div class="email-option">
+                    <div class="email-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h4>Send Email</h4>
+                    <p>Open your preferred email client</p>
+                    <a href="mailto:nikhildeshmuk98@gmail.com?subject=Contact%20from%20Website&body=Hello%20Nana,%20I%20just%20visited%20your%20website!" class="email-link">
+                        <i class="fas fa-paper-plane"></i> Send Email
+                    </a>
+                </div>
+                
+                <div class="email-option">
+                    <div class="email-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4>Quick Message</h4>
+                    <p>Send a quick message directly</p>
+                    <a href="sms:91+6309872249?Nana,%20I%20just%20visited%20your%20website!" class="email-link">
+                        <i class="fas fa-comment"></i> Send SMS
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success message -->
+    <div class="message-container" id="success-message">
+        <div class="message-content">
+            <div class="message-icon">🎉</div>
+            <h2>Message Sent! 🎉</h2>
+            <p>Your message has been sent successfully! Thank you for reaching out. ❤️</p>
+            <p id="response-message"></p>
+            <button class="message-btn" id="close-message-btn">
+                <i class="fas fa-check-circle"></i> Okay
+            </button>
+        </div>
+    </div>
+    
+    <script>
+        // Create floating hearts
+        function createFloatingHearts() {
+            const container = document.getElementById('magical-bg');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                
+                // Random size class
+                const sizes = ['small', '', 'large'];
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                heart.className = `floating-heart ${size}`;
+                heart.innerHTML = '❤️';
+                
+                // Random position and animation
+                heart.style.left = `${Math.random() * 100}vw`;
+                const duration = Math.random() * 20 + 20;
+                const delay = Math.random() * 10;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // DOM elements
+        const yesBtn = document.getElementById('yes-btn');
+        const noBtn = document.getElementById('no-btn');
+        const valentineResponse = document.getElementById('valentine-response');
+        const gifImage = document.getElementById('gif-image');
+        const gifPlaceholder = document.getElementById('gif-placeholder');
+        const gifMessage = document.getElementById('gif-message');
+        const submitBtn = document.getElementById('submit-btn');
+        const successMessage = document.getElementById('success-message');
+        const closeMessageBtn = document.getElementById('close-message-btn');
+        const responseMessage = document.getElementById('response-message');
+        const contactForm = document.getElementById('contact-form');
+        
+        // GIF URLs for different responses
+        const gifs = {
+            yes: [
+                'images/teddy.WEBP',
+                
+            ],
+            no: [
+                'images/sadge.gif'
+               
+            ]
+        };
+        
+        // Messages for different responses
+        const messages = {
+            yes: [
+                "Yay! You made me the happiest person! ❤️",
+                "This is the best news ever! I can't wait! 💕",
+                "My heart is jumping with joy! Thank you! 😊"
+            ],
+            no: [
+                "Please accept my proposal Nanna.❤️"
+            
+            ]
+        };
+        
+        // Selected response
+        let selectedResponse = null;
+        let selectedGifIndex = 0;
+        
+        // Handle Yes button click
+        yesBtn.addEventListener('click', function() {
+            selectedResponse = 'yes';
+            valentineResponse.value = 'Yes';
+            
+            // Update button styles
+            yesBtn.classList.add('selected');
+            noBtn.classList.remove('selected');
+            
+            // Enable submit button
+            submitBtn.disabled = false;
+            
+            // Show GIF
+            showGif('yes');
+        });
+        
+        // Handle No button click
+        noBtn.addEventListener('click', function() {
+            selectedResponse = 'no';
+            valentineResponse.value = 'No';
+            
+            // Update button styles
+            noBtn.classList.add('selected');
+            yesBtn.classList.remove('selected');
+            
+            // Enable submit button
+            submitBtn.disabled = false;
+            
+            // Show GIF
+            showGif('no');
+        });
+        
+        // Show appropriate GIF based on response
+        function showGif(responseType) {
+            // Get random index for GIF and message
+            selectedGifIndex = Math.floor(Math.random() * gifs[responseType].length);
+            
+            // Set GIF source
+            gifImage.src = gifs[responseType][selectedGifIndex];
+            
+            // Hide placeholder and show GIF
+            gifPlaceholder.style.display = 'none';
+            gifImage.style.display = 'block';
+            
+            // Show message
+            gifMessage.textContent = messages[responseType][selectedGifIndex];
+            gifMessage.style.display = 'block';
+        }
+        
+        // Handle form submission
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Add the GIF URL and message to the form data
+            const form = e.target;
+            const formData = new FormData(form);
+            
+            // Add additional data
+            formData.append('gif-url', gifs[selectedResponse][selectedGifIndex]);
+            formData.append('response-message', messages[selectedResponse][selectedGifIndex]);
+            
+            // Submit the form using fetch
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message with response
+                    responseMessage.textContent = `Your answer was: "${selectedResponse === 'yes' ? 'Yes! ❤️' : 'No 💔'}" - ${messages[selectedResponse][selectedGifIndex]}`;
+                    successMessage.style.display = 'flex';
+                    
+                    // Reset form after 2 seconds
+                    setTimeout(() => {
+                        contactForm.reset();
+                        selectedResponse = null;
+                        valentineResponse.value = '';
+                        yesBtn.classList.remove('selected');
+                        noBtn.classList.remove('selected');
+                        submitBtn.disabled = true;
+                        gifPlaceholder.style.display = 'flex';
+                        gifImage.style.display = 'none';
+                        gifMessage.style.display = 'none';
+                    }, 3000);
+                } else {
+                    alert('There was an error sending your message. Please try again.');
+                }
+            })
+            .catch(error => {
+                alert('There was an error sending your message. Please try again.');
+                console.error('Error:', error);
+            });
+        });
+        
+        // Close success message
+        closeMessageBtn.addEventListener('click', function() {
+            successMessage.style.display = 'none';
+        });
+        
+        // Make the back button work smoothly
+        const backButton = document.querySelector('.back-btn');
+        backButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            // Add a smooth transition effect
+            document.body.style.opacity = '0.7';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                window.location.href = 'home.html';
+            }, 300);
+        });
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts();
+            
+            // Set subject field to the Valentine question
+            const subjectField = document.getElementById('subject');
+            subjectField.value = "Will you be my Valentine?";
+        });
+    </script>
+</body>
+</html>

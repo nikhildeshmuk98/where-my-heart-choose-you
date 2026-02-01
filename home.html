@@ -734,7 +734,7 @@
     
     <div class="container">
         <!-- Left Side Navigation - Desktop -->
-        <div class="nav-left-desktop">
+       <div class="nav-left-desktop">
             <div class="nav-button" id="images-btn" title="Our Memories">
                 <i class="fas fa-images"></i>
                 <span>Memories</span>
@@ -752,28 +752,34 @@
                 <span>Logout</span>
             </div>
         </div>
-        
-        <!-- Bottom Navigation - Mobile -->
-        <div class="nav-bottom-mobile">
-            <div class="nav-bottom-buttons">
-                <div class="nav-bottom-button" id="images-btn-mobile" title="Our Memories">
-                    <i class="fas fa-images"></i>
-                    <span>Memories</span>
-                </div>
-                <div class="nav-bottom-button" id="letters-btn-mobile" title="Love Letters">
-                    <i class="fas fa-heart"></i>
-                    <span>Letters</span>
-                </div>
-                <div class="nav-bottom-button" id="game-btn-mobile" title="Play Game">
-                    <i class="fas fa-gamepad"></i>
-                    <span>Game</span>
-                </div>
-                <div class="nav-bottom-button" id="logout-btn-mobile" title="Logout">
-                    <i class="fas fa-sign-out-alt"></i>
-                    <span>Logout</span>
-                </div>
-            </div>
-        </div>
+
+        <!--mobile navigation-->
+      <div class="nav-bottom-mobile">
+    <div class="nav-bottom-buttons">
+
+        <a href="memories.html" class="nav-bottom-button" title="Our Memories">
+            <i class="fas fa-images"></i>
+            <span>Memories</span>
+        </a>
+
+        <a href="letters.html" class="nav-bottom-button" title="Love Letters">
+            <i class="fas fa-heart"></i>
+            <span>Letters</span>
+        </a>
+
+        <a href="game.html" class="nav-bottom-button" title="Play Game">
+            <i class="fas fa-gamepad"></i>
+            <span>Game</span>
+        </a>
+
+        <a href="index.html" class="nav-bottom-button logout" title="Logout">
+            <i class="fas fa-sign-out-alt"></i>
+            <span>Logout</span>
+        </a>
+
+    </div>
+</div>
+
         
         <!-- Main content area -->
         <div class="main-content">
@@ -827,7 +833,7 @@
     });
 
     document.getElementById("logout-btn").addEventListener("click", () => {
-        navigateTo("login.html");
+        navigateTo("index.html");
     });
         // DOM Elements
         const yesBtn = document.getElementById('yes-btn');
